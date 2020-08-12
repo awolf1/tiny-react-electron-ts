@@ -1,12 +1,22 @@
+# Install
+
+First clone the project:
+`git clone https://github.com/awolf1/tiny-react-electron-ts.git tiny-react-electron-ts`
+
+Open the directory folder:
+`cd tiny-react-electron-ts`
+
+Install all the dependencys
+`yarn`
 
 
-
-## Available Scripts
+# Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+`yarn start`
 
+#### React
 Runs the app in the development mode.<br />
 
 The page will reload if you make edits.<br />
@@ -26,3 +36,7 @@ Your app is ready to be deployed!
 Builds the app for production to the `dist` folder.<br />
 
 The build contains a setup file that install and runs app on client.
+
+
+
+
