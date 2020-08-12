@@ -6,7 +6,6 @@
   "build": {
     "appId": "tiny-react-electron-ts"
   },
-
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
@@ -15,14 +14,12 @@
     "react:build": "react-scripts build",
     "react:test": "react-scripts test --env=jsdom",
     "react:eject": "react-scripts eject",
-    
     "electron:build": "electron-builder",
     "electron:release": "electron-builder --publish=always",
-
     "release": "yarn react:build && yarn electron:release",
     "build": "yarn react:build && yarn electron:build",
     "start": "concurrently \"cross-env BROWSER=none yarn react:start\" \"wait-on http://localhost:3000 && electron .\""
-    },
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -44,16 +41,18 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
+    "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.0",
     "cross-env": "^7.0.2",
     "electron-is-dev": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "typescript": "~3.7.2"
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.5",
     "concurrently": "^5.3.0",
     "electron": "^9.2.0",
     "electron-builder": "^22.8.0",
