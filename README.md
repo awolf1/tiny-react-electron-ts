@@ -40,3 +40,12 @@ The build contains a setup file that install and runs app on client.
 
 
 
+
+
+
+# Pacotes utilizados
+
+Electron
+React
+Typescript
+Fontawesome

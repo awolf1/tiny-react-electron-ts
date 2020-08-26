@@ -15,11 +15,17 @@ let mainWindow;
 let tray;
 let isQuiting;
 
+
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 900,
         height: 680,
-        icon: iconpath
+        icon: iconpath,
+        frame: false,
+        enableRemoteModule: true,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
     mainWindow.loadURL(
         isDev ?
@@ -30,6 +36,16 @@ function createWindow() {
     mainWindow.on("closed", () => {
         mainWindow = null;
     });
+
+    mainWindow.webContents.on("devtools-opened", () => {
+        if(process.argv[2] != '--dev'){
+            mainWindow.webContents.closeDevTools();
+        }
+    });
+
+    if(process.argv[2] == '--dev'){
+        mainWindow.webContents.openDevTools();
+    }
 
     if(_hideMenu){
         mainWindow.setMenuBarVisibility(false);

@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import './styles.css';
 
 import { Link } from 'react-router-dom';
-import PageHeader from '../../components/PageHeader';
+import ConnectionsController from '../../controllers/ConnectionsController';
 
 function Home(){
+
+    const connectionsController = new ConnectionsController();
+
+    const [totalConnections, setTotalConnections] = useState(0);
+
+    useEffect(() => {
+        connectionsController.create();
+
+        connectionsController.index().then(ret => {
+            setTotalConnections(ret);
+        });
+        
+
+    }, [])
+
     return (
         <>
-            <PageHeader />
             <h1>Home</h1>
-            <Link to="/">
-                Landing
+            <Link to="/Page1">
+                Page 1
             </Link>
+            <p>Total: {totalConnections}</p>
         </>
     )
 }

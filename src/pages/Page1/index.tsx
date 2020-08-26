@@ -3,15 +3,15 @@ import './styles.css';
 
 import { Link } from 'react-router-dom';
 
-function Landing(){
+function Page1(){
     return (
         <div>
-            <h1>Landing</h1>
-            <Link to="/Home">
+            <h1>Page1</h1>
+            <Link to="/">
                 Home
             </Link>
         </div>
     )
 }
 
-export default Landing;
+export default Page1;
