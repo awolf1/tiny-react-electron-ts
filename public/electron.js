@@ -37,14 +37,18 @@ function createWindow() {
         mainWindow = null;
     });
 
-    mainWindow.webContents.on("devtools-opened", () => {
+    /*mainWindow.webContents.on("devtools-opened", () => {
         if(process.argv[2] != '--dev'){
             mainWindow.webContents.closeDevTools();
         }
-    });
+    });*/
 
     if(process.argv[2] == '--dev'){
         mainWindow.webContents.openDevTools();
+    }else{
+        mainWindow.webContents.on("devtools-opened", () => {
+            mainWindow.webContents.closeDevTools();
+        });
     }
 
     if(_hideMenu){
@@ -105,3 +109,13 @@ app.on("activate", () => {
 app.on('before-quit', () => {
     isQuiting = true;
 });
+
+process.on("uncaughtException", (err) => {
+    const messageBoxOptions = {
+         type: "error",
+         title: "Error in Main process",
+         message: "Something failed"
+     };
+     dialog.showMessageBox(messageBoxOptions);
+     throw err;
+ });

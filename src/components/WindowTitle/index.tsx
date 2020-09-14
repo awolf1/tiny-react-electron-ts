@@ -33,13 +33,12 @@ function handleMax(e:any) {
 
 function handleClose(e:any) {
   e.preventDefault();
-  let window = electron.remote.getCurrentWindow();
-  window.close();
+  electron.remote.getCurrentWindow().close();
 }
 
 function handleDev(e:any) {
   e.preventDefault();
-  let window = electron.remote.getCurrentWindow().toggleDevTools();
+  electron.remote.getCurrentWindow().toggleDevTools();
 }
 
 function isDev() {
